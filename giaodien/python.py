@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import csv
+import matplotlib.pyplot as plt
 
 # Data storage
 car_data = []
@@ -156,6 +157,25 @@ def delete_car():
         save_data_to_csv()
         view_data()
 
+def show_chart():
+    # Tạo biểu đồ dựa trên dữ liệu Annual Income
+    if not car_data:
+        messagebox.showwarning("No Data", "No data available to display chart.")
+        return
+
+    # Lấy danh sách tên khách hàng và thu nhập
+    customer_names = [car[2] for car in car_data]  # Tên khách hàng
+    incomes = [float(car[4]) for car in car_data]  # Thu nhập hàng năm (Annual Income)
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(customer_names, incomes, color='skyblue')
+    plt.xlabel("Customer Name")
+    plt.ylabel("Annual Income")
+    plt.title("Annual Income of Customers")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.show()
+
 def quit_app():
     root.quit()
 
@@ -176,9 +196,10 @@ def create_nav_button(text, row, command=None):
 
 create_nav_button("📂 Load CSV", 0, load_data_from_csv)
 create_nav_button("➕ Add Car", 1, open_input_window)
-create_nav_button("🖉 Update Car", 2, update_car_by_selection)  # Thêm nút Update
-create_nav_button("🗑 Delete Car", 3, delete_car)
-create_nav_button("🚪 Quit", 4, quit_app)
+create_nav_button("🖉 Update Car", 2, update_car_by_selection)
+create_nav_button("📊 Show Chart", 3, show_chart)  # Nút để hiển thị biểu đồ
+create_nav_button("🗑 Delete Car", 4, delete_car)
+create_nav_button("🚪 Quit", 5, quit_app)
 
 # Khung chính
 main_frame = tk.Frame(root, bg="#1e1e2e", padx=20, pady=20)
