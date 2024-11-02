@@ -1,0 +1,92 @@
+Car_id,Date,Customer Name,Gender,Annual Income,Dealer_Name,Company,Model,Color,Price,Phone
+1,07/01/2024,Shania,Male,945000,Tri-State Mack Inc,Volkswagen,Passat,Red,13000,8396730
+2,07/02/2024,Shaniya,Male,1210000,U-Haul CO,Volkswagen,Beetle,Red,45000,8043333
+3,07/03/2024,Shiloh,Male,970000,Progressive Shippers Cooperative Association No,Chevrolet,Malibu,Pale White,14000,6950834
+4,07/04/2024,Skye,Male,465000,Rabun Used Car Sales,Subaru,Forester,Red,26000,7082266
+5,07/05/2024,Skyla,Male,725000,Race Car Help,Hyundai,Sonata,Red,21000,7386244
+6,07/06/2024,Skylar,Female,13500,Ryder Truck Rental and Leasing,Dodge,Durango,Pale White,10000,8882230
+7,07/07/2024,Sophia,Male,990000,Saab-Belle Dodge,Mitsubishi,Montero Sport,Red,29000,7185729
+8,07/08/2024,Soraya,Male,972500,Scrivener Performance Engineering,Dodge,Ram Van,Black,60500,6968878
+9,07/09/2024,Summer,Male,955000,Star Enterprises Inc,Oldsmobile,Aurora,Red,24000,8126960
+10,07/10/2024,Sydney,Male,1900000,Suburban Ford,Chevrolet,Corvette,Pale White,46000,6440702
+11,07/11/2024,Symphony,Male,13500,Tri-State Mack Inc,Saab,03-Sep,Black,23000,7783238
+12,07/12/2024,Hassan,Male,950000,New Castle Ford Lincoln Mercury,Toyota,Celica,Pale White,45001,7308204
+13,7/13/2024,Hayden,Male,13500,Pars Auto Sales,Mitsubishi,3000GT,Red,24001,8495813
+14,7/14/2024,Ava,Male,13500,Rabun Used Car Sales,Mercedes-B,M-Class,Red,25000,7393120
+15,7/15/2024,Avery,Male,445000,Race Car Help,Chrysler,Concorde,Pale White,42000,7283769
+16,7/16/2024,Ruby,Female,13500,Tri-State Mack Inc,Honda,Civic,Black,43000,8666993
+17,7/17/2024,Sabrina,Male,632500,U-Haul CO,Mercedes-B,SL-Class,Pale White,26500,6061224
+18,7/18/2024,Alizee,Female,390000,Clay Johnson Auto Sales,Saturn,LW,Pale White,18000,6850524
+19,7/19/2024,Camille,Male,1055000,Diehl Motor CO Inc,Oldsmobile,Silhouette,Pale White,14500,6313404
+20,7/20/2024,Tabitha,Male,1100000,U-Haul CO,Toyota,RAV4,Pale White,22000,8806786
+21,7/21/2024,Tamia,Female,13500,Buddy Storbeck's Diesel Service Inc,Mercury,Cougar,Red,22000,7130028
+22,7/22/2024,Hunter,Female,1200000,Pitre Buick-Pontiac-Gmc of Scottsdale,Plymouth,Voyager,Pale White,22001,7685940
+23,7/23/2024,Ian,Male,1600000,Progressive Shippers Cooperative Association No,Pontiac,Grand Prix,Red,19001,6509254
+24,7/24/2024,Ibrahim,Female,825000,Rabun Used Car Sales,Honda,Accord,Black,43001,6097787
+25,7/25/2024,Ibrahima,Male,585000,Race Car Help,Chevrolet,Metro,Pale White,12001,7609750
+26,7/26/2024,Isaac,Male,13500,Ryder Truck Rental and Leasing,Volkswagen,Cabrio,Red,25001,7296188
+27,7/27/2024,Isaiah,Female,1631000,Saab-Belle Dodge,Mercury,Sable,Pale White,26100,8659599
+28,7/28/2024,Ishmael,Male,13500,Scrivener Performance Engineering,Jaguar,S-Type,Red,21001,6351122
+29,7/29/2024,Isiah,Male,650000,Star Enterprises Inc,Audi,A4,Black,27001,6095160
+30,7/30/2024,Jace,Male,725000,Suburban Ford,Volkswagen,Passat,Red,20001,7156839
+31,7/31/2024,Jackson,Male,665000,Tri-State Mack Inc,Acura,TL,Black,28000,8023465
+32,08/01/2024,Jacob,Male,560500,U-Haul CO,Mercury,Cougar,Pale White,28500,7505351
+33,08/02/2024,Luna,Male,13500,Star Enterprises Inc,Oldsmobile,Bravada,Black,17000,7924860
+34,08/03/2024,Amanda,Male,13500,Progressive Shippers Cooperative Association No,Ford,Ranger,Black,18001,8409892
+35,08/04/2024,Mackenzie,Male,1695000,Tri-State Mack Inc,Lincoln,Town car,Black,26500,7064574
+36,08/05/2024,Madeline,Male,2550000,U-Haul CO,BMW,323i,Red,21000,6657601
+37,08/06/2024,Madelyn,Female,1590000,Buddy Storbeck's Diesel Service Inc,Saturn,LW,Pale White,18000,8745992
+38,08/07/2024,Madison,Female,532500,C & M Motors Inc,Pontiac,Grand Prix,Red,19500,7643011
+39,08/08/2024,Makayla,Male,561000,Capitol KIA,Mercedes-B,C-Class,Black,14000,6183402
+40,08/09/2024,Maria,Male,525000,Chrysler of Tri-Cities,Ford,Contour,Red,19000,7131907
+41,08/10/2024,Mariah,Male,2800000,Chrysler Plymouth,Saab,03-Sep,Red,69000,7213055
+42,08/11/2024,Mariana,Male,1870000,Classic Chevy,Ford,Expedition,Black,26000,7230398
+43,08/12/2024,Marilyn,Male,2402500,Clay Johnson Auto Sales,Jeep,Wrangler,Pale White,23250,6224297
+44,8/13/2024,Sadie,Male,435000,Buddy Storbeck's Diesel Service Inc,Acura,TL,Black,28000,8298808
+45,8/14/2024,Samantha,Female,1190000,C & M Motors Inc,Ford,Crown Victoria,Pale White,20000,7619252
+46,8/15/2024,Samara,Female,1516000,Capitol KIA,Lexus,LS400,Black,22600,8368516
+47,8/16/2024,Sara,Male,13500,Chrysler of Tri-Cities,Ford,F-Series,Pale White,14000,7790286
+48,8/17/2024,Sarah,Male,468250,Chrysler Plymouth,Chevrolet,Camaro,Black,41250,8273595
+49,8/18/2024,Sarai,Male,1716000,Classic Chevy,Mercedes-B,SL-Class,Pale White,26600,6282903
+50,8/19/2024,Sariah,Male,270000,Clay Johnson Auto Sales,Chrysler,Concorde,Pale White,28000,8705826
+51,8/20/2024,Sasha,Male,365000,Diehl Motor CO Inc,Cadillac,Catera,Pale White,75000,8699295
+52,8/21/2024,Savanna,Male,340000,Enterprise Rent A Car,Volkswagen,Beetle,Red,21000,7112764
+53,8/22/2024,Savannah,Male,722500,Gartner Buick Hyundai Saab,Dodge,Viper,Red,41500,6367111
+54,8/23/2024,Scarlet,Male,1600000,Hatfield Volkswagen,Subaru,Forester,Black,22000,7348072
+55,8/24/2024,Anais,Female,13500,Enterprise Rent A Car,Saab,03-Sep,Red,69000,7816434
+56,8/25/2024,Florian,Female,13500,Gartner Buick Hyundai Saab,Volvo,S40,Black,17000,8170532
+57,8/26/2024,Oriane,Male,1030000,Hatfield Volkswagen,Volkswagen,Passat,Red,13000,6710616
+58,8/27/2024,Oceane,Male,1450000,Iceberg Rentals,Dodge,Viper,Red,23000,8448435
+59,8/28/2024,Radya,Male,760000,McKinney Dodge Chrysler Jeep,Jeep,Wrangler,Red,13000,6605897
+60,8/29/2024,Alexis,Female,850000,C & M Motors Inc,Chevrolet,Prizm,Pale White,42001,8579050
+61,8/30/2024,Tom,Male,13500,Nebo Chevrolet,Oldsmobile,Silhouette,Black,60000,6652299
+62,8/31/2024,Erwan,Male,1265000,New Castle Ford Lincoln Mercury,Saturn,SL,Black,11500,6637412
+63,09/01/2024,Amandine,Female,450000,Pars Auto Sales,Pontiac,Grand Am,Red,31000,8472574
+64,09/02/2024,Enzo,Male,823000,Pitre Buick-Pontiac-Gmc of Scottsdale,Mercedes-B,S-Class,Black,18000,7068153
+65,09/03/2024,Eliott,Male,13500,Capitol KIA,Nissan,Pathfinder,Pale White,16001,7625531
+66,09/04/2024,Taraji,Male,1266000,C & M Motors Inc,Lincoln,Town car,Black,17600,8965969
+67,09/05/2024,Taylor,Male,1040000,Capitol KIA,Saturn,LS,Pale White,51000,8176983
+68,09/06/2024,Tiana,Female,625000,Chrysler of Tri-Cities,Lexus,GS400,Pale White,25000,8188119
+69,09/07/2024,Tianna,Female,13500,Chrysler Plymouth,Honda,CR-V,Red,39000,7586965
+70,09/08/2024,Tori,Female,751000,Classic Chevy,Lincoln,Continental,Pale White,20000,6222209
+71,09/09/2024,Trinity,Male,13500,Clay Johnson Auto Sales,Honda,Accord,Black,43000,8628727
+72,09/10/2024,Victoria,Male,888000,Diehl Motor CO Inc,Plymouth,Prowler,Pale White,27000,8612599
+73,09/11/2024,Zahara,Male,521000,Enterprise Rent A Car,Toyota,RAV4,Black,28000,7558061
+74,09/12/2024,Zaniyah,Female,423750,Gartner Buick Hyundai Saab,Chevrolet,Monte Carlo,Black,44750,7402900
+75,9/13/2024,Zara,Male,857700,Hatfield Volkswagen,Honda,CR-V,Black,31700,8241389
+76,9/14/2024,Zaria,Male,642500,Iceberg Rentals,Lincoln,Navigator,Black,19500,7804248
+77,9/15/2024,Jaden,Male,615000,Progressive Shippers Cooperative Association No,BMW,323i,Red,19000,8493328
+78,9/16/2024,Jaheim,Male,845000,Rabun Used Car Sales,Pontiac,Grand Prix,Red,69000,7304593
+79,9/17/2024,Jahmir,Male,585000,Race Car Help,Chevrolet,Prizm,Black,16000,7851042
+80,9/18/2024,Jaiden,Male,440000,Ryder Truck Rental and Leasing,Subaru,Forester,Black,22000,8394123
+81,9/19/2024,Jalen,Male,850000,Saab-Belle Dodge,Mercury,Cougar,Black,26000,8074058
+82,9/20/2024,Jamal,Female,775000,Scrivener Performance Engineering,Cadillac,Escalade,Black,34000,6465851
+83,9/21/2024,Jamel,Male,850000,Star Enterprises Inc,Oldsmobile,Intrigue,Red,39000,8844238
+84,9/22/2024,James,Male,705000,Suburban Ford,Pontiac,Sunfire,Black,18000,8115307
+85,9/23/2024,Maya,Male,1955000,Diehl Motor CO Inc,Saturn,LS,Red,24500,8639003
+86,9/24/2024,Mckenzie,Male,1702000,Enterprise Rent A Car,Pontiac,Grand Am,Pale White,12200,8771231
+87,9/25/2024,Megan,Male,500000,Gartner Buick Hyundai Saab,Mercury,Villager,Black,16000,8571119
+88,9/26/2024,Melanie,Male,3399000,Hatfield Volkswagen,Mitsubishi,3000GT,Red,24900,8406205
+89,9/27/2024,Jazmin,Male,4802500,Rabun Used Car Sales,Ford,Ranger,Black,25251,8643944
+90,9/28/2024,Melina,Male,3900000,McKinney Dodge Chrysler Jeep,Mercedes-B,E-Class,Pale White,31000,8032706
+91,10/10/2024,h,h,h,h,h,h,h,21313,2312312
