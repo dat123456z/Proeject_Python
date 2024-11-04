@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import csv
+import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -229,7 +230,9 @@ sidebar.pack(side="left", fill="y")
 # Logo
 def create_logo():
     try:
-        logo_image = Image.open("logo.png")
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        logo_path = os.path.join(script_dir, "logo.png")
+        logo_image = Image.open(logo_path)
         logo_image = logo_image.resize((80, 80), Image.LANCZOS)
         logo_photo = ImageTk.PhotoImage(logo_image)
         logo_label = tk.Label(sidebar, image=logo_photo, bg="#d9f2e6")
@@ -239,6 +242,7 @@ def create_logo():
         messagebox.showerror("Error", "Logo file 'logo.png' not found.")
 
 create_logo()
+
 
 # Nút điều hướng
 def create_nav_button(text, row, command=None):
