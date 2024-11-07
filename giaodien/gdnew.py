@@ -250,8 +250,6 @@ def delete_car():
         save_data_to_csv()
         view_data()
 
-
-
 def quit_app():
     root.quit()
 
@@ -315,4 +313,7 @@ tree.pack(fill="both", expand=True)
 
 load_data_from_csv()
 view_data()
+
+# Bắt đầu vòng lặp sự kiện Tkinter
 root.mainloop()
+
