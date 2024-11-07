@@ -13,6 +13,29 @@ from showchart import show_chart
 car_data = []
 columns = ["Car_id", "Date", "Customer Name", "Gender", "Annual Income", "Dealer_Name", "Company", "Model", "Color", "Price", "Phone"]
 
+# Tạo từ điển để lưu trạng thái sắp xếp cho từng cột (True là giảm dần, False là tăng dần)
+sort_states = {col: False for col in columns}
+
+# Hàm sắp xếp cột
+def sort_column(col):
+    """Sắp xếp dữ liệu dựa trên cột được bấm vào trong Treeview"""
+    reverse = sort_states[col]
+    try:
+        sorted_data = sorted(car_data, key=lambda x: float(x[columns.index(col)]), reverse=reverse)
+    except ValueError:
+        sorted_data = sorted(car_data, key=lambda x: x[columns.index(col)], reverse=reverse)
+    sort_states[col] = not reverse
+    view_data(sorted_data)  # Truyền dữ liệu đã sắp xếp
+
+
+# Hàm hiển thị dữ liệu lên bảng
+def view_data(data=None):
+    for row in tree.get_children():
+        tree.delete(row)
+    data_to_display = data if data else car_data
+    for row in data_to_display:
+        tree.insert("", tk.END, values=row)
+
 # Hàm mở cửa sổ nhập dữ liệu
 def open_input_window():
     table_frame.pack_forget()
@@ -94,11 +117,11 @@ def load_data_from_csv():
     except Exception as e:
         messagebox.showerror("Error", f"Failed to load data: {e}")
 
-def view_data():
-    for row in tree.get_children():
-        tree.delete(row)
-    for row in car_data:
-        tree.insert("", tk.END, values=row)
+#def view_data():
+#    for row in tree.get_children():
+#        tree.delete(row)
+#    for row in car_data:
+#        tree.insert("", tk.END, values=row)
 
 def add_car():
     new_car = []
@@ -192,7 +215,6 @@ def update_car_by_id():
     ttk.Button(update_window, text="Cập nhật", command=check_and_update).pack(pady=10)
 
 
-
 def open_input_window_for_update(car_id):
     table_frame.pack_forget()
     input_frame.pack(fill="x", pady=20)
@@ -219,13 +241,22 @@ def open_input_window_for_update(car_id):
 
 def save_updated_car(car_id):
     updated_car = []
+    new_car_id = entries["Car_id"].get()
+
+    # Kiểm tra nếu Car_id mới đã tồn tại trong dữ liệu (ngoại trừ bản ghi hiện tại)
+    if new_car_id != car_id and check_car_exists(new_car_id):
+        messagebox.showerror("Lỗi", "ID xe đã tồn tại. Vui lòng nhập ID khác.")
+        entries["Car_id"].focus_set()  # Đặt con trỏ vào Car ID để nhập lại
+        return
+
     for col in columns:
         value = entries[col].get()
         if not value:
             messagebox.showwarning("Lỗi nhập liệu", "Vui lòng điền vào đầy đủ dữ liệu.")
             return
         updated_car.append(value)
-    
+
+    # Cập nhật dữ liệu với Car_id mới và lưu lại
     for i, car in enumerate(car_data):
         if car[0] == car_id:
             car_data[i] = updated_car
@@ -237,13 +268,14 @@ def save_updated_car(car_id):
     view_data()
     messagebox.showinfo("", "Cập nhật dữ liệu thành công.")
 
+
 def delete_car():
     selected_item = tree.selection()
     if not selected_item:
-        messagebox.showwarning("No selection", "Please select a row to delete.")
+        messagebox.showwarning("Lỗi", "Vui lòng chọn một dòng để xóa.")
         return
 
-    confirm = messagebox.askyesno("Confirm Delete", "Are you sure you want to delete the selected row?")
+    confirm = messagebox.askyesno("Xác nhận xóa", "Bạn có chắc chắn xóa cột được chọn không?")
     if confirm:
         data_index = tree.index(selected_item[0])
         del car_data[data_index]
@@ -303,7 +335,7 @@ table_frame.pack(fill="both", expand=True)
 
 tree = ttk.Treeview(table_frame, columns=columns, show="headings")
 for col in columns:
-    tree.heading(col, text=col)
+    tree.heading(col, text=col, command=lambda _col=col: sort_column(_col))
     tree.column(col, anchor="center", width=120)
 
 scrollbar = ttk.Scrollbar(table_frame, orient="vertical", command=tree.yview)

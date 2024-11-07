@@ -6,8 +6,16 @@ import pandas as pd
 def show_chart():
     root = tk.Toplevel()
     root.title("Show Chart Options")
-    root.geometry("400x500")
+    window_width, window_height = 500, 550
+    root.geometry(f"{window_width}x{window_height}")  # Thiết lập kích thước cửa sổ
     root.configure(bg="white")
+
+    # Đặt cửa sổ ở giữa màn hình
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    position_top = int((screen_height - window_height) / 2)
+    position_left = int((screen_width - window_width) / 2)
+    root.geometry(f"{window_width}x{window_height}+{position_left}+{position_top}")
 
     # Đọc dữ liệu từ file data.csv
     try:
@@ -20,14 +28,14 @@ def show_chart():
     title_label.pack(pady=20)
 
     options = [
-        ("Top 5 Best-selling Brands", "1"),
-        ("Top 5 Highest Revenue Brands", "2"),
-        ("Customer Gender Distribution", "3"),
-        ("Color Distribution of Cars", "4")
+        ("Top 5 Thương hiệu bán chạy nhất", "1"),
+        ("Top 5 Thương hiệu có doanh thu cao nhất", "2"),
+        ("Phân phối giới tính của khách hàng", "3"),
+        ("Phân phối màu sắc của xe", "4")
     ]
 
     selected_option = tk.StringVar(value="1")
-    selected_button = None  # Để lưu ô được chọn hiện tại
+    selected_button = None
 
     option_frame = tk.Frame(root, bg="white")
     option_frame.pack(pady=20)
@@ -35,12 +43,8 @@ def show_chart():
     def on_select(e, value, button):
         nonlocal selected_button
         selected_option.set(value)
-
-        # Đặt màu nền bình thường cho ô trước đó
         if selected_button:
             selected_button.config(bg="#e0e0e0")
-
-        # Đặt màu nền đậm cho ô được chọn
         button.config(bg="#cce7ff")
         selected_button = button
 
@@ -68,17 +72,17 @@ def show_chart():
     root.grab_set()
     root.wait_window(root)
 
-# Các hàm biểu đồ bên dưới đều thêm `root` và `car_data` làm tham số
-# Đoạn mã biểu đồ không thay đổi ở đây
-
-
-
-# Các hàm biểu đồ bên dưới đều thêm `root` và `car_data` làm tham số
+def center_window(window, width, height):
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    position_top = int((screen_height - height) / 2)
+    position_left = int((screen_width - width) / 2)
+    window.geometry(f"{width}x{height}+{position_left}+{position_top}")
 
 def show_gender_chart(car_data):
     chart_window = tk.Toplevel()
     chart_window.title("Biểu đồ giới tính")
-    chart_window.geometry("600x600")
+    center_window(chart_window, 600, 600)
 
     male_count = sum(1 for car in car_data if car[3] == "Male")
     female_count = sum(1 for car in car_data if car[3] == "Female")
@@ -108,7 +112,7 @@ def show_top_5_brands_chart(car_data):
 
     chart_window = tk.Toplevel()
     chart_window.title("Top 5 Hãng Xe Bán Chạy Nhất")
-    chart_window.geometry("800x600")
+    center_window(chart_window, 800, 600)
 
     fig, ax = plt.subplots(figsize=(10, 6))
     bars = ax.bar(companies, counts, color="green")
@@ -125,7 +129,6 @@ def show_top_5_brands_chart(car_data):
     canvas.draw()
     canvas.get_tk_widget().pack(fill="both", expand=True)
 
-
 def show_top_5_revenue_chart(car_data):
     revenue_data = {}
     for car in car_data:
@@ -136,7 +139,7 @@ def show_top_5_revenue_chart(car_data):
 
     chart_window = tk.Toplevel()
     chart_window.title("Top 5 Hãng Xe Có Doanh Thu Cao Nhất")
-    chart_window.geometry("600x600")
+    center_window(chart_window, 600, 600)
 
     fig, ax = plt.subplots(figsize=(8, 6))
     companies = [item[0] for item in top_5_revenue]
@@ -163,7 +166,7 @@ def show_color_distribution_chart(car_data):
 
     chart_window = tk.Toplevel()
     chart_window.title("Phân Bố Màu Sắc Các Loại Xe")
-    chart_window.geometry("600x600")
+    center_window(chart_window, 600, 600)
 
     fig, ax = plt.subplots(figsize=(6, 6))
     labels = color_count.keys()
