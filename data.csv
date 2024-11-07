@@ -1,5 +1,5 @@
 Car_id,Date,Customer Name,Gender,Annual Income,Dealer_Name,Company,Model,Color,Price,Phone
-1,07/01/2024,Shania,Male,945000,Tri-State Mack Inc,Volkswagen,Passat,Red,13000,8396730
+1,07/01/2024,Shania,Male,945000,Tri-State Mack Inc,Volkswagen,Passat,Black,13000,8396730
 2,07/02/2024,Shaniya,Male,1210000,U-Haul CO,Volkswagen,Beetle,Red,45000,8043333
 3,07/03/2024,Shiloh,Male,970000,Progressive Shippers Cooperative Association No,Chevrolet,Malibu,Pale White,14000,6950834
 4,07/04/2024,Skye,Male,465000,Rabun Used Car Sales,Subaru,Forester,Red,26000,7082266
@@ -89,4 +89,5 @@ Car_id,Date,Customer Name,Gender,Annual Income,Dealer_Name,Company,Model,Color,P
 88,9/26/2024,Melanie,Male,3399000,Hatfield Volkswagen,Mitsubishi,3000GT,Red,24900,8406205
 89,9/27/2024,Jazmin,Male,4802500,Rabun Used Car Sales,Ford,Ranger,Black,25251,8643944
 90,9/28/2024,Melina,Male,3900000,McKinney Dodge Chrysler Jeep,Mercedes-B,E-Class,Pale White,31000,8032706
-91,10/10/2024,h,h,h,h,h,h,h,21313,2312312
+91,9/29/2024,Melissa,Male,13500,Motor Vehicle Branch Office,Volkswagen,Cabrio,Black,16000,6314629
+92,9/30/2024,Melody,Male,697000,Nebo Chevrolet,Ford,Contour,Pale White,60000,7834133
