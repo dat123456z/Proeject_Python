@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: PROJECT_PYTHON_MAIN
+Version: 0.0.1
+Author: Hieu
+Author-email: bacdoan52@gmail.com
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: Pillow
+Requires-Dist: setuptools
