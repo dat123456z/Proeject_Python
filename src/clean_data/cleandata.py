@@ -2,7 +2,8 @@ import pandas as pd
 import os
 
 # Đọc tệp CSV
-data = pd.read_csv("data/raw/data.csv")  # Sử dụng dấu gạch chéo để tránh lỗi
+file_path = 'D:\\Proeject_Python-main\\data\\raw\\data.csv'
+data = pd.read_csv(file_path)  # Sử dụng dấu gạch chéo để tránh lỗi
 
 # Chọn các cột cần thiết
 selected_columns = ['Car_id', 'Date', 'Customer Name', 'Gender', 'Annual Income', 'Dealer_Name', 'Company', 'Model', 'Color', 'Price', 'Phone']
