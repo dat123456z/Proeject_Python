@@ -13,13 +13,14 @@ from src.module.module import sort_column, view_data
 from src.CRUD.read import load_data_from_csv
 from src.CRUD.delete import delete_car
 from src.CRUD.update import *
-
+from src.CRUD.find import search_by_company
 
 def giaodien():
         
     # Data storage
     car_data = []
     columns = ["Car_id", "Date", "Customer Name", "Gender", "Annual Income", "Dealer_Name", "Company", "Model", "Color", "Price", "Phone"]
+
 
     # Tạo từ điển để lưu trạng thái sắp xếp cho từng cột (True là giảm dần, False là tăng dần)
     sort_states = {col: False for col in columns}
@@ -85,6 +86,7 @@ def giaodien():
     sidebar = tk.Frame(root, bg="#d9f2e6", width=100, height=700)
     sidebar.pack(side="left", fill="y")
 
+    
     # Logo
     def create_logo():
         try:
@@ -100,6 +102,7 @@ def giaodien():
             messagebox.showerror("Error", "Logo file 'logo.png' not found.")
     create_logo()
 
+
     def create_nav_button(text, row, command=None):
         btn = tk.Button(sidebar, text=text, font=("Helvetica", 10, "bold"), fg="white", bg="#007bff", bd=0, padx=10, pady=10, command=command)
         btn.grid(row=row, column=0, sticky="ew", padx=10, pady=10)
@@ -110,6 +113,7 @@ def giaodien():
     create_nav_button("🗑 Delete Car", 4, lambda: delete_car(columns, car_data, tree))
     create_nav_button("📊 Show Chart", 5, show_chart)
     create_nav_button("🚪 Quit", 6, quit_app)
+
 
     main_frame = tk.Frame(root, bg="#e6f7ff", padx=20, pady=20)
     main_frame.pack(side="right", fill="both", expand=True)
@@ -123,7 +127,22 @@ def giaodien():
     table_frame = tk.Frame(main_frame, bg="#d9f2e6", bd=2, relief="groove")
     table_frame.pack(fill="both", expand=True)
 
+            # Frame chứa thanh tìm kiếm
+    search_frame = tk.Frame(main_frame, bg="#e6f7ff", pady=10)
+    search_frame.pack(fill="x", pady=10)
+
+    search_label = tk.Label(search_frame, text="Search by Company:", font=("Helvetica", 10, "bold"), bg="#e6f7ff")
+    search_label.pack(side="left", padx=10)
+
+    search_entry = ttk.Entry(search_frame, width=30)
+    search_entry.pack(side="left", padx=10)
+
+    search_button = tk.Button(search_frame, text="Search", bg="#007bff", fg="white", font=('Helvetica', 10, 'bold'), bd=0,
+                              command=lambda: search_by_company(search_entry, columns, car_data, tree, table_frame))
+    search_button.pack(side="left", padx=10)
+
     tree = ttk.Treeview(table_frame, columns=columns, show="headings")
+
     for col in columns:
         tree.heading(col, text=col, command=lambda _col=col: sort_column(_col,columns, sort_states, car_data, tree))
         tree.column(col, anchor="center", width=120)
@@ -134,7 +153,8 @@ def giaodien():
     tree.pack(fill="both", expand=True)
 
     load_data_from_csv(car_data, tree, input_frame, table_frame)
-    view_data(tree= tree, car_data=car_data)
+    view_data(tree=tree, car_data=car_data)
+
 
     # Bắt đầu vòng lặp sự kiện Tkinter
     root.mainloop()
