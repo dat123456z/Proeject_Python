@@ -30,7 +30,7 @@ def show_chart():
     options = [
         ("Top 5 Thương hiệu bán chạy nhất", "1"),
         ("Top 5 Thương hiệu có doanh thu cao nhất", "2"),
-        ("Phân phối giới tính của khách hàng", "3"),
+        ("Top 5 Đại lý có doanh thu cao nhất", "3"),
         ("Phân phối màu sắc của xe", "4")
     ]
 
@@ -61,7 +61,7 @@ def show_chart():
         elif option == "2":
             show_top_5_revenue_chart(car_data)
         elif option == "3":
-            show_gender_chart(car_data)
+            show_top_dealers_chart(car_data)
         elif option == "4":
             show_color_distribution_chart(car_data)
 
@@ -79,24 +79,46 @@ def center_window(window, width, height):
     position_left = int((screen_width - width) / 2)
     window.geometry(f"{width}x{height}+{position_left}+{position_top}")
 
-def show_gender_chart(car_data):
+
+def show_top_dealers_chart(car_data):
+   
+    # Tạo cửa sổ hiển thị biểu đồ
     chart_window = tk.Toplevel()
-    chart_window.title("Biểu đồ giới tính")
-    center_window(chart_window, 600, 600)
+    chart_window.title("Top 5 Dealer Revenue")
+    center_window(chart_window, 1000, 800)  # Center window (giữ nguyên nếu bạn đã định nghĩa)
 
-    male_count = sum(1 for car in car_data if car[3] == "Male")
-    female_count = sum(1 for car in car_data if car[3] == "Female")
+    # Tính tổng doanh thu theo đại lý
+    from collections import defaultdict
+    dealer_revenue = defaultdict(int)
+    for car in car_data:
+        dealer_revenue[car[5]] += car[9]
+    
+    # Lấy top 5 đại lý có doanh thu cao nhất
+    top_dealers = sorted(dealer_revenue.items(), key=lambda x: x[1], reverse=True)[:5]
+    dealers, revenues = zip(*top_dealers)
 
-    fig, ax = plt.subplots(figsize=(6, 6))
-    labels = ["Male", "Female"]
-    sizes = [male_count, female_count]
-    ax.pie(sizes, labels=[f"{label} ({count})" for label, count in zip(labels, sizes)],
-           autopct='%1.1f%%', startangle=140, colors=['lightblue', 'pink'])
-    ax.set_title("Giới Tính khách hàng")
+    # Tạo biểu đồ cột
+    fig, ax = plt.subplots(figsize=(12, 8))
+    bars = ax.bar(dealers, revenues, color='skyblue')
+    ax.set_title("Top 5 Dealer Revenue", fontsize=14)
+    ax.set_xlabel("Dealer Name", fontsize=12)
+    ax.set_ylabel("Total Revenue", fontsize=12)
+    ax.tick_params(axis='x', rotation=45)
+    ax.set_xticks(range(len(dealers)))
+    ax.set_xticklabels(dealers, rotation=0, fontsize=8, ha='center')
 
+    # Hiển thị doanh thu trên từng cột
+    for bar in bars:
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, height, f'{int(height)}', 
+                ha='center', va='bottom', fontsize=10)
+
+    # Kết nối với tkinter
     canvas = FigureCanvasTkAgg(fig, master=chart_window)
     canvas.draw()
     canvas.get_tk_widget().pack(fill="both", expand=True)
+
+
 
 def show_top_5_brands_chart(car_data):
     brands = [car[6] for car in car_data]
