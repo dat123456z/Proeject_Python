@@ -149,7 +149,7 @@ def giaodien():
 
     root = tk.Tk()
     root.title("Car Management System")
-    root.geometry("1500x700")
+    root.geometry("1500x800")
     root.configure(bg="#e6f7ff")
 
     sidebar = tk.Frame(root, bg="#d9f2e6", width=100, height=700)
