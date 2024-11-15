@@ -189,9 +189,6 @@ def giaodien():
     input_frame = tk.Frame(main_frame, bg="#d9f2e6", padx=20, pady=20, bd=2, relief="groove")
     input_frame.pack_forget()
 
-    table_frame = tk.Frame(main_frame, bg="#d9f2e6", bd=2, relief="groove")
-    table_frame.pack(fill="both", expand=True)
-
     search_frame = tk.Frame(main_frame, bg="#e6f7ff", pady=10)
     search_frame.pack(fill="x", pady=10)
 
@@ -204,6 +201,11 @@ def giaodien():
     search_button = tk.Button(search_frame, text="Search", bg="#007bff", fg="white", font=('Helvetica', 10, 'bold'), bd=0,
                               command=lambda: search_by_company(search_entry, columns, car_data, tree, pagination_frame))
     search_button.pack(side="left", padx=10)
+
+    table_frame = tk.Frame(main_frame, bg="#d9f2e6", bd=2, relief="groove")
+    table_frame.pack(fill="both", expand=True)
+
+    
 
     pagination_frame = tk.Frame(main_frame, bg="#e6f7ff", pady=10)
     pagination_frame.pack(fill="x", pady=10)
