@@ -139,9 +139,9 @@ def show_top_5_brands_chart(car_data):
     fig, ax = plt.subplots(figsize=(10, 6))
     bars = ax.bar(companies, counts, color="green")
 
-    ax.set_title("Top 5 Best-selling Companies - Third Quarter / 2024", fontsize=16, weight='bold')
-    ax.set_xlabel("Company", fontsize=12)
-    ax.set_ylabel("Number of Cars Sold", fontsize=12)
+    ax.set_title("Top 5 thương hiệu bán chạy nhất", fontsize=16, weight='bold')
+    ax.set_xlabel("Hãng Xe", fontsize=12)
+    ax.set_ylabel("Số lượng xe bán ra", fontsize=12)
 
     for i, (bar, percent) in enumerate(zip(bars, percentages)):
         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height(), percent, 
