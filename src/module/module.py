@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.CRUD.create import save_data_to_csv, add_car
+from CRUD.create import save_data_to_csv, add_car
 
 # Hàm sắp xếp cột
 def sort_column(col, columns, sort_states, car_data, tree):

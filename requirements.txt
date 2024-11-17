@@ -1,7 +1,0 @@
-matplotlib
-pandas
-numpy
-Pillow
-setuptools
-
--e .

@@ -1,8 +1,8 @@
 from tkinter import messagebox
 import tkinter as tk
 from tkinter import ttk
-from src.CRUD.create import save_data_to_csv
-from src.module.module import view_data
+from CRUD.create import save_data_to_csv
+from module.module import view_data
 
 
 def check_car_exists(car_id, car_data):

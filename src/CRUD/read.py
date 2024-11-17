@@ -1,12 +1,12 @@
 import csv
 from tkinter import messagebox
-from src.module.module import view_data
+from module.module import view_data
 
 def load_data_from_csv(car_data, tree, input_frame, table_frame):
     input_frame.pack_forget()  # Ẩn khung nhập liệu
     table_frame.pack(fill="both", expand=True)  # Hiển thị lại khung bảng dữ liệu
 
-    file_path = '../data/clean/Cleaned_Car_Dataset.csv'
+    file_path = 'data/clean/Cleaned_Car_Dataset.csv'
     try:
         with open(file_path, newline='') as csvfile:
             reader = csv.reader(csvfile)

@@ -1,8 +1,8 @@
 from tkinter import messagebox
-from src.CRUD.create import save_data_to_csv
-from src.module.module import view_data
+from CRUD.create import save_data_to_csv
+from module.module import view_data
 
-def delete_car(columns, car_data, tree = None):
+def delete_car(columns, car_data, tree=None):
     # Lấy item được chọn trong treeview
     selected_item = tree.selection()
     
@@ -11,21 +11,31 @@ def delete_car(columns, car_data, tree = None):
         messagebox.showwarning("Lỗi", "Vui lòng chọn một dòng để xóa.")
         return
 
+    # Lấy ID của dòng được chọn
+    try:
+        selected_id = tree.item(selected_item[0], "values")[0]  # Giả sử ID nằm ở cột đầu tiên
+    except IndexError:
+        messagebox.showerror("Lỗi", "Không thể xác định ID từ dòng được chọn.")
+        return
+
     # Xác nhận xóa
-    confirm = messagebox.askyesno("Xác nhận xóa", "Bạn có chắc chắn xóa cột được chọn không?")
-    
+    confirm = messagebox.askyesno("Xác nhận xóa", f"Bạn có chắc chắn muốn xóa dữ liệu với ID: {selected_id}?")
     if confirm:
         try:
-            # Lấy chỉ số dữ liệu từ item trong tree
-            data_index = tree.index(selected_item[0])
+            # Tìm dòng có ID khớp trong car_data
+            row_to_delete = next((row for row in car_data if str(row[0]) == str(selected_id)), None)
             
-            # Xóa dữ liệu từ car_data
-            del car_data[data_index]
-            
-            # Lưu lại dữ liệu vào CSV sau khi xóa
-            save_data_to_csv(columns=columns, car_data=car_data)
-            
-            # Cập nhật lại giao diện table view
-            view_data(tree=tree, car_data=car_data)
+            if row_to_delete:
+                car_data.remove(row_to_delete)  # Xóa dòng khỏi danh sách
+                
+                # Lưu lại dữ liệu vào CSV sau khi xóa
+                save_data_to_csv(columns=columns, car_data=car_data)
+                
+                # Cập nhật lại giao diện table view
+                view_data(tree=tree, car_data=car_data)
+                
+                messagebox.showinfo("Thành công", f"Đã xóa dữ liệu với ID: {selected_id}.")
+            else:
+                messagebox.showerror("Lỗi", f"Không tìm thấy dữ liệu với ID: {selected_id}.")
         except Exception as e:
             messagebox.showerror("Lỗi", f"Đã xảy ra lỗi: {str(e)}")

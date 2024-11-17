@@ -3,7 +3,7 @@ from tkinter import messagebox
 import csv
 
 def save_data_to_csv(columns, car_data):
-    file_path = '../data/clean/Cleaned_Car_Dataset.csv'
+    file_path = 'data/clean/Cleaned_Car_Dataset.csv'
     try:
         with open(file_path, mode='w', newline='') as csvfile:
             writer = csv.writer(csvfile)

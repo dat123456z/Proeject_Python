@@ -20,7 +20,7 @@ def show_chart():
 
     # Đọc dữ liệu từ file data.csv
     try:
-        car_data = pd.read_csv('../data/clean/Cleaned_Car_Dataset.csv').values.tolist()
+        car_data = pd.read_csv('data/clean/Cleaned_Car_Dataset.csv').values.tolist()
     except FileNotFoundError:
         tk.messagebox.showerror("Lỗi", "File data.csv không tồn tại")
         return
@@ -80,7 +80,6 @@ def center_window(window, width, height):
     position_left = int((screen_width - width) / 2)
     window.geometry(f"{width}x{height}+{position_left}+{position_top}")
 
-
 def show_top_dealers_chart(car_data):
     # Tạo cửa sổ hiển thị biểu đồ
     chart_window = tk.Toplevel()
@@ -133,7 +132,6 @@ def show_top_dealers_chart(car_data):
 
 
 
-
 def show_top_5_brands_chart(car_data):
     # Tính toán dữ liệu
     brands = [car[6] for car in car_data]
@@ -156,11 +154,6 @@ def show_top_5_brands_chart(car_data):
     cmap = mcolors.LinearSegmentedColormap.from_list("custom_gradient", ["#112D60", "#B6C0C5"])
     colors = [cmap(i / len(companies)) for i in range(len(companies))]
 
-<<<<<<< HEAD
-    ax.set_title("Top 5 thương hiệu bán chạy nhất", fontsize=16, weight='bold')
-    ax.set_xlabel("Hãng Xe", fontsize=12)
-    ax.set_ylabel("Số lượng xe bán ra", fontsize=12)
-=======
     # Tạo biểu đồ
     fig, ax = plt.subplots(figsize=(10, 6))
     bars = ax.bar(companies, counts, color=colors)
@@ -168,7 +161,6 @@ def show_top_5_brands_chart(car_data):
     ax.set_title("Top 5 Best Selling Companies December 2023 ", fontsize=16, weight='bold')
     ax.set_xlabel("Company", fontsize=12)
     ax.set_ylabel("Number of Cars Sold", fontsize=12)
->>>>>>> 0f717b48894e4fc4d5a3c41f886de38d0cb3f4af
 
     # Hiển thị số xe bán và phần trăm trên mỗi cột
     for i, (bar, count, percent) in enumerate(zip(bars, counts, percentages)):
@@ -185,7 +177,6 @@ def show_top_5_brands_chart(car_data):
 
 
 
-
 def show_top_5_revenue_chart(car_data):
     # Tính toán doanh thu theo hãng
     revenue_data = {}
@@ -197,7 +188,7 @@ def show_top_5_revenue_chart(car_data):
 
     # Tạo cửa sổ biểu đồ
     chart_window = tk.Toplevel()
-    chart_window.title("Top 5 Hãng Xe Có Doanh Thu Cao Nhất")
+    chart_window.title("Top 5 Companies With Highest Revenue in December 2023")
     center_window(chart_window, 800, 600)  # Làm cửa sổ to hơn
 
     # Dữ liệu biểu đồ
@@ -212,9 +203,9 @@ def show_top_5_revenue_chart(car_data):
     fig, ax = plt.subplots(figsize=(10, 6))  # Làm biểu đồ to hơn
     bars = ax.bar(companies, revenues, color=colors)
 
-    ax.set_title("Top 5 Hãng Xe Có Doanh Thu Cao Nhất", fontsize=16, weight='bold')
-    ax.set_xlabel("Hãng Xe", fontsize=12)
-    ax.set_ylabel("Doanh Thu", fontsize=12)
+    ax.set_title("Top 5 Companies With Highest Revenue in December 2023", fontsize=16, weight='bold')
+    ax.set_xlabel("Company", fontsize=12)
+    ax.set_ylabel("Revenue", fontsize=12)
 
     # Hiển thị doanh thu trên mỗi cột
     for bar, revenue in zip(bars, revenues):
@@ -226,7 +217,6 @@ def show_top_5_revenue_chart(car_data):
     canvas.draw()
     canvas.get_tk_widget().pack(fill="both", expand=True)
 
-
 def show_color_distribution_chart(car_data):
     colors = [car[8] for car in car_data]
     color_count = {}
@@ -234,7 +224,7 @@ def show_color_distribution_chart(car_data):
         color_count[color] = color_count.get(color, 0) + 1
 
     chart_window = tk.Toplevel()
-    chart_window.title("Phân Bố Màu Sắc Các Loại Xe")
+    chart_window.title("Color Distribution of Vehicle Types")
     center_window(chart_window, 600, 600)
 
     fig, ax = plt.subplots(figsize=(6, 6))
@@ -244,7 +234,7 @@ def show_color_distribution_chart(car_data):
     ax.pie(sizes, labels=[f"{label} ({count})" for label, count in zip(labels, sizes)],
            autopct='%1.1f%%', startangle=140)
     
-    ax.set_title("Phân Bố Màu Sắc Các Loại Xe")
+    ax.set_title("Color Distribution of Vehicle Types")
 
     canvas = FigureCanvasTkAgg(fig, master=chart_window)
     canvas.draw()

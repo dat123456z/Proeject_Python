@@ -3,13 +3,13 @@ from tkinter import ttk, messagebox # Thư viện giao diện đồ họa
 import csv # Thư viện xử lý file CSV
 import os # Thư viện xử lý hệ thống
 from PIL import Image, ImageTk # Thư viện xử lý ảnh
-from src.giaodien.showchart import show_chart   # Thư viện xử lý biểu đồ
-from src.CRUD.create import save_data_to_csv, add_car # Thư viện xử lý tạo mới
-from src.module.module import sort_column, view_data # Thư viện xử lý sắp xếp và xem dữ liệu
-from src.CRUD.read import load_data_from_csv # Thư viện xử lý đọc dữ liệu từ file CSV
-from src.CRUD.delete import delete_car # Thư viện xử lý xóa dữ liệu
-from src.CRUD.update import * # Thư viện xử lý cập nhật dữ liệu
-from src.CRUD.find import search_by_company # Thư viện xử lý tìm kiếm dữ liệu
+from giaodien.showchart import show_chart   # Thư viện xử lý biểu đồ
+from CRUD.create import save_data_to_csv, add_car # Thư viện xử lý tạo mới
+from module.module import sort_column, view_data # Thư viện xử lý sắp xếp và xem dữ liệu
+from CRUD.read import load_data_from_csv # Thư viện xử lý đọc dữ liệu từ file CSV
+from CRUD.delete import delete_car # Thư viện xử lý xóa dữ liệu
+from CRUD.update import * # Thư viện xử lý cập nhật dữ liệu
+from CRUD.find import search_by_company # Thư viện xử lý tìm kiếm dữ liệu
 
 # Số lượng mục trên mỗi trang
 ITEMS_PER_PAGE = 100
