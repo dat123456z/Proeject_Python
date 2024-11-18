@@ -15,7 +15,7 @@ def sort_column(col, columns, sort_states, car_data, tree):
 # Hàm hiển thị dữ liệu lên bảng
 def view_data(data=None, tree=None, car_data=None):
     for row in tree.get_children():
-        tree.delete(row)
-    data_to_display = data if data else car_data
+        tree.delete(row) # Xóa dữ liệu cũ trên bảng
+    data_to_display = data if data else car_data # Nếu không có dữ liệu mới thì lấy dữ liệu cũ
     for row in data_to_display:
         tree.insert("", tk.END, values=row)

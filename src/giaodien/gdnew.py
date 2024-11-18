@@ -102,13 +102,13 @@ def giaodien():
         table_frame.pack_forget()
         input_frame.pack(fill="x", pady=20)
 
-        for widget in input_frame.winfo_children():
+        for widget in input_frame.winfo_children(): # Xóa các widget cũ
             widget.destroy()
 
         global entries
         entries = {}
-        for idx, col in enumerate(columns):
-            label = tk.Label(input_frame, text=col, font=('Helvetica', 10, 'bold'), fg="#333333", bg="#d9f2e6")
+        for idx, col in enumerate(columns): # Tạo các label và entry cho từng cột,enumerate trả về giá trị và chỉ số của phần tử
+            label = tk.Label(input_frame, text=col, font=('Helvetica', 10, 'bold'), fg="#333333", bg="#d9f2e6") 
             label.grid(row=idx, column=0, sticky='w', padx=10, pady=8)
 
             entry = ttk.Entry(input_frame, width=50)
@@ -137,7 +137,7 @@ def giaodien():
         if check_car_exists(car_id, car_data=car_data):
             messagebox.showerror("Lỗi", "ID xe đã tồn tại. Vui lòng nhập ID khác")
             entries["Car_id"].delete(0, tk.END)
-            entries["Car_id"].focus_set()
+            entries["Car_id"].focus_set()  # đặt con trỏ lại phần car_id cho người dùng nhập lại
         else:
             if add_car(columns, entries, car_data, tree, input_frame, table_frame):
                 input_frame.pack_forget()
