@@ -1,6 +1,6 @@
 from tkinter import messagebox
 from CRUD.create import save_data_to_csv
-from module.module import view_data
+from CRUD.sort import view_data
 
 def delete_car(columns, car_data, tree=None):
     # Lấy item được chọn trong treeview

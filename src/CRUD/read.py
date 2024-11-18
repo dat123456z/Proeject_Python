@@ -1,6 +1,6 @@
 import csv
 from tkinter import messagebox
-from module.module import view_data
+from CRUD.sort import view_data
 
 def load_data_from_csv(car_data, tree, input_frame, table_frame):
     input_frame.pack_forget()  # Ẩn khung nhập liệu
