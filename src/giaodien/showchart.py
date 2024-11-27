@@ -22,17 +22,17 @@ def show_chart():
     try:
         car_data = pd.read_csv('data/clean/Cleaned_Car_Dataset.csv').values.tolist()
     except FileNotFoundError:
-        tk.messagebox.showerror("Lỗi", "File data.csv không tồn tại")
+        tk.messagebox.showerror("error", "File data.csv does not exist")
         return
 
-    title_label = tk.Label(root, text="CHỌN BIỂU ĐỒ MUỐN HIỂN THỊ", font=("Arial", 20, "bold"), bg="white", fg="#003366")
+    title_label = tk.Label(root, text="SELECT THE CHART YOU WANT TO DISPLAY", font=("Arial", 15, "bold"), bg="white", fg="#003366")
     title_label.pack(pady=20)
 
     options = [
-        ("Top 5 Thương hiệu bán chạy nhất", "1"),
-        ("Top 5 Thương hiệu có doanh thu cao nhất", "2"),
-        ("Top 5 Đại lý có doanh thu cao nhất", "3"),
-        ("Phân phối màu sắc của xe", "4")
+        ("Top 5 Best Selling Brands", "1"),
+        ("Top 5 Brands with Highest Revenue", "2"),
+        ("Top 5 Agents with the highest revenue", "3"),
+        ("Vehicle color distribution", "4")
     ]
 
     selected_option = tk.StringVar(value="1")
@@ -66,7 +66,7 @@ def show_chart():
         elif option == "4":
             show_color_distribution_chart(car_data)
 
-    confirm_button = tk.Button(root, text="HIỂN THỊ", command=on_confirm, bg="#57a1f8", fg="white", font=('Arial', 14, 'bold'), padx=10, pady=10)
+    confirm_button = tk.Button(root, text="DISPLAY", command=on_confirm, bg="#57a1f8", fg="white", font=('Arial', 14, 'bold'), padx=10, pady=10)
     confirm_button.pack(pady=20)
 
     root.transient()
@@ -147,7 +147,7 @@ def show_top_5_brands_chart(car_data):
 
     # Tạo cửa sổ biểu đồ
     chart_window = tk.Toplevel()
-    chart_window.title("Top 5 Hãng Xe Bán Chạy Nhất")
+    chart_window.title("Top 5 Best Selling Companies")
     center_window(chart_window, 800, 600)
 
     # Tạo gradient màu từ #112D60 đến #B6C0C5
@@ -158,7 +158,7 @@ def show_top_5_brands_chart(car_data):
     fig, ax = plt.subplots(figsize=(10, 6))
     bars = ax.bar(companies, counts, color=colors)
 
-    ax.set_title("Top 5 Best Selling Companies December 2023 ", fontsize=16, weight='bold')
+    ax.set_title("Top 5 Best Selling Companies ", fontsize=16, weight='bold')
     ax.set_xlabel("Company", fontsize=12)
     ax.set_ylabel("Number of Cars Sold", fontsize=12)
 
@@ -188,7 +188,7 @@ def show_top_5_revenue_chart(car_data):
 
     # Tạo cửa sổ biểu đồ
     chart_window = tk.Toplevel()
-    chart_window.title("Top 5 Companies With Highest Revenue in December 2023")
+    chart_window.title("Top 5 Companies With Highest Revenue")
     center_window(chart_window, 800, 600)  # Làm cửa sổ to hơn
 
     # Dữ liệu biểu đồ
@@ -203,7 +203,7 @@ def show_top_5_revenue_chart(car_data):
     fig, ax = plt.subplots(figsize=(10, 6))  # Làm biểu đồ to hơn
     bars = ax.bar(companies, revenues, color=colors)
 
-    ax.set_title("Top 5 Companies With Highest Revenue in December 2023", fontsize=16, weight='bold')
+    ax.set_title("Top 5 Companies With Highest Revenue", fontsize=16, weight='bold')
     ax.set_xlabel("Company", fontsize=12)
     ax.set_ylabel("Revenue", fontsize=12)
 

@@ -24,7 +24,7 @@ def add_car(columns, entries, car_data, tree, input_frame, table_frame):
 
     # Kiểm tra nếu có trường trống
     if empty_fields:
-        messagebox.showwarning("Lỗi nhập liệu", "Vui lòng điền vào đầy đủ dữ liệu.")  # Hiển thị thông báo
+        messagebox.showwarning("Error", "Please fill in the data completely")  # Hiển thị thông báo
         first_empty_field = empty_fields[0]  # Trường trống đầu tiên
         entries[first_empty_field].focus_set()  # Đặt con trỏ vào trường trống đầu tiên
         return  # Giữ nguyên input_frame để người dùng có thể nhập tiếp
@@ -34,7 +34,7 @@ def add_car(columns, entries, car_data, tree, input_frame, table_frame):
     save_data_to_csv(columns, car_data)  # Lưu vào file CSV, truyền columns và car_data
 
     # Hiển thị thông báo thành công
-    messagebox.showinfo("", "Thêm xe thành công.")
+    messagebox.showinfo("", "Add car successfully")
 
     # Xóa dữ liệu trong các entry sau khi thêm thành công
     for entry in entries.values():

@@ -28,14 +28,14 @@ def update_car_by_id(root, car_data, table_frame, input_frame, columns, tree):
     y = root.winfo_y() + (root.winfo_height() // 2) - (150 // 2)
     update_window.geometry(f"300x150+{x}+{y}")
 
-    tk.Label(update_window, text="Nhập ID xe muốn cập nhật:", font=('Helvetica', 10)).pack(pady=10)
+    tk.Label(update_window, text="Enter the car ID you want to update:", font=('Helvetica', 10)).pack(pady=10)
     car_id_entry = ttk.Entry(update_window, width=30)
     car_id_entry.pack(pady=5)
 
     def check_and_update():
         car_id = car_id_entry.get()
         if not car_id:
-            messagebox.showwarning("Cảnh báo", "Vui lòng nhập ID.")
+            messagebox.showwarning("Error", "Please enter ID")
             return
 
         # Kiểm tra xem ID có tồn tại không
@@ -50,14 +50,14 @@ def update_car_by_id(root, car_data, table_frame, input_frame, columns, tree):
             err_y = root.winfo_y() + (root.winfo_height() // 2) - (100 // 2)
             error_window.geometry(f"300x100+{err_x}+{err_y}")
             
-            tk.Label(error_window, text="ID không tồn tại.", font=('Helvetica', 10)).pack(pady=10)
+            tk.Label(error_window, text="ID does not exist", font=('Helvetica', 10)).pack(pady=10)
             
             # Nút "Nhập lại" để người dùng có thể nhập lại ID
-            retry_button = ttk.Button(error_window, text="Nhập lại", command=lambda: [car_id_entry.delete(0, tk.END), error_window.destroy()])
+            retry_button = ttk.Button(error_window, text="Re-enter", command=lambda: [car_id_entry.delete(0, tk.END), error_window.destroy()])
             retry_button.pack(side=tk.LEFT, padx=10, pady=10)
 
             # Nút "Hủy" để đóng cả hai cửa sổ
-            cancel_button = ttk.Button(error_window, text="Hủy", command=lambda: [error_window.destroy(), update_window.destroy()])
+            cancel_button = ttk.Button(error_window, text="Cancel", command=lambda: [error_window.destroy(), update_window.destroy()])
             cancel_button.pack(side=tk.RIGHT, padx=10, pady=10)
             return
 
@@ -65,7 +65,7 @@ def update_car_by_id(root, car_data, table_frame, input_frame, columns, tree):
         update_window.destroy()
         open_input_window_for_update(car_id, table_frame, input_frame, columns, car_data, tree)
 
-    ttk.Button(update_window, text="Cập nhật", command=check_and_update).pack(pady=10)
+    ttk.Button(update_window, text="Update", command=check_and_update).pack(pady=10)
 
 def open_input_window_for_update(car_id, table_frame, input_frame, columns, car_data, tree):
     table_frame.pack_forget()
@@ -97,14 +97,14 @@ def save_updated_car(car_id, columns, car_data, tree, input_frame, table_frame):
 
     # Kiểm tra nếu Car_id mới đã tồn tại trong dữ liệu (ngoại trừ bản ghi hiện tại)
     if new_car_id != car_id and check_car_exists(new_car_id , car_data):
-        messagebox.showerror("Lỗi", "ID xe đã tồn tại. Vui lòng nhập ID khác.")
+        messagebox.showerror("Error", "Car ID already exists. Please enter another ID")
         entries["Car_id"].focus_set()  # Đặt con trỏ vào Car ID để nhập lại
         return
 
     for col in columns:
         value = entries[col].get()
         if not value:
-            messagebox.showwarning("Lỗi nhập liệu", "Vui lòng điền vào đầy đủ dữ liệu.")
+            messagebox.showwarning("Error", "Please fill in the data completely")
             return
         updated_car.append(value)
 
@@ -118,4 +118,4 @@ def save_updated_car(car_id, columns, car_data, tree, input_frame, table_frame):
     input_frame.pack_forget()
     table_frame.pack(fill="both", expand=True)
     view_data(tree= tree, car_data=car_data)
-    messagebox.showinfo("", "Cập nhật dữ liệu thành công.")
+    messagebox.showinfo("", "Update data successfully")

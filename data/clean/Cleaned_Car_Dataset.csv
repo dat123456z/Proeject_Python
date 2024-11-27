@@ -1,6 +1,5 @@
 Car_id,Date,Customer Name,Gender,Annual Income,Dealer_Name,Company,Model,Color,Price,Phone
 1,12/01/2023,Michael,Male,780000,Saab-Belle Dodge,Ford,Explorer,Black,22001,7248426
-2,12/01/2023,Lucas,Male,650000,Scrivener Performance Engineering,Honda,Accord,Pale White,21001,6510737
 3,12/01/2023,Elise,Female,300000,Star Enterprises Inc,Ford,Taurus,Pale White,22001,7263811
 4,12/01/2023,Louison,Male,715000,Suburban Ford,Chevrolet,Metro,Pale White,19001,6194690
 5,12/01/2023,Paul,Male,770000,Tri-State Mack Inc,Toyota,Camry,Pale White,31001,8004538
@@ -1915,4 +1914,6 @@ Car_id,Date,Customer Name,Gender,Annual Income,Dealer_Name,Company,Model,Color,P
 1918,12/31/2023,Jimmy,Female,900000,Ryder Truck Rental and Leasing,Chevrolet,Prizm,Black,16000,7914229
 1919,12/31/2023,Emma,Male,705000,Chrysler of Tri-Cities,BMW,328i,Red,21000,7659127
 1920,12/31/2023,Victoire,Male,13500,Chrysler Plymouth,Chevrolet,Metro,Black,31000,6030764
-1921,12/31/2023,Donovan,Male,1225000,Pars Auto Sales,Lexus,ES300,Pale White,27500,7020564
+1921,12/31/2023,Donovan,Male,1225000,Pars Auto Sales,Lexus,ES300,Pale White,27500,6305819
+12345,12,12,65,34,56,45,56,78,543,4312
+223452435,24524,452345,235432,52345432545324,524523,5235,4,45235345,5234,2345

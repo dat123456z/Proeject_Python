@@ -8,18 +8,18 @@ def delete_car(columns, car_data, tree=None):
     
     # Kiểm tra nếu không có dòng nào được chọn
     if not selected_item:
-        messagebox.showwarning("Lỗi", "Vui lòng chọn một dòng để xóa.")
+        messagebox.showwarning("Error", "Please select a row to delete")
         return
 
     # Lấy ID của dòng được chọn
     try:
         selected_id = tree.item(selected_item[0], "values")[0]  # Giả sử ID nằm ở cột đầu tiên
     except IndexError:
-        messagebox.showerror("Lỗi", "Không thể xác định ID từ dòng được chọn.")
+        messagebox.showerror("Error", "Unable to determine ID from selected row")
         return
 
     # Xác nhận xóa
-    confirm = messagebox.askyesno("Xác nhận xóa", f"Bạn có chắc chắn muốn xóa dữ liệu với ID: {selected_id}?")
+    confirm = messagebox.askyesno("Confirm deletion", f"Are you sure you want to delete data with ID: {selected_id}?")
     if confirm:
         try:
             # Tìm dòng có ID khớp trong car_data
@@ -34,8 +34,8 @@ def delete_car(columns, car_data, tree=None):
                 # Cập nhật lại giao diện table view
                 view_data(tree=tree, car_data=car_data)
                 
-                messagebox.showinfo("Thành công", f"Đã xóa dữ liệu với ID: {selected_id}.")
+                messagebox.showinfo("Delete successful", f"Deleted data with ID: {selected_id}.")
             else:
-                messagebox.showerror("Lỗi", f"Không tìm thấy dữ liệu với ID: {selected_id}.")
+                messagebox.showerror("Error", f"No data found with ID: {selected_id}.")
         except Exception as e:
-            messagebox.showerror("Lỗi", f"Đã xảy ra lỗi: {str(e)}")
+            messagebox.showerror("Error", f"An error occurred: {str(e)}")

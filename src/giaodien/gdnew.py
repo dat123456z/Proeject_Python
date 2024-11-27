@@ -128,14 +128,14 @@ def giaodien():
     def check_id_on_entry(event):
         car_id = entries["Car_id"].get()
         if check_car_exists(car_id, car_data=car_data):
-            id_warning_label.config(text="ID đã tồn tại.", fg="red")
+            id_warning_label.config(text="ID already exists", fg="red")
         else:
             id_warning_label.config(text="")
 
     def save_and_view_data():
         car_id = entries["Car_id"].get()
         if check_car_exists(car_id, car_data=car_data):
-            messagebox.showerror("Lỗi", "ID xe đã tồn tại. Vui lòng nhập ID khác")
+            messagebox.showerror("Error", "Car ID already exists. Please enter another ID.")
             entries["Car_id"].delete(0, tk.END)
             entries["Car_id"].focus_set()  # đặt con trỏ lại phần car_id cho người dùng nhập lại
         else:
