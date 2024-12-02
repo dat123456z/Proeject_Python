@@ -20,7 +20,7 @@ def update_car(car_id, car_data, table_frame, input_frame, columns, tree):
 
 def update_car_by_id(root, car_data, table_frame, input_frame, columns, tree):
     update_window = tk.Toplevel(root)
-    update_window.title("Cập nhật xe")
+    update_window.title("Vehicle Update")
     update_window.geometry("300x150")
 
     # Tính toán để cửa sổ update_window hiển thị ở giữa root
@@ -42,7 +42,7 @@ def update_car_by_id(root, car_data, table_frame, input_frame, columns, tree):
         if not any(car[0] == car_id for car in car_data):  # Nếu ID không tồn tại trong dữ liệu
             # Tạo cửa sổ thông báo lỗi và định vị ở giữa root
             error_window = tk.Toplevel(update_window)
-            error_window.title("Lỗi")
+            error_window.title("Error")
             error_window.geometry("300x100")
             
             # Tính toán để cửa sổ error_window hiển thị ở giữa root
