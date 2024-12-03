@@ -1,7 +1,7 @@
 from tkinter import messagebox
 import tkinter as tk
 from tkinter import ttk
-from CRUD.create import save_data_to_csv
+from CRUD.create import save_data_to_csv, validate_input
 from CRUD.sort import view_data
 
 
@@ -20,7 +20,7 @@ def update_car(car_id, car_data, table_frame, input_frame, columns, tree):
 
 def update_car_by_id(root, car_data, table_frame, input_frame, columns, tree):
     update_window = tk.Toplevel(root)
-    update_window.title("Cập nhật xe")
+    update_window.title("Vehicle Update")
     update_window.geometry("300x150")
 
     # Tính toán để cửa sổ update_window hiển thị ở giữa root
@@ -42,7 +42,7 @@ def update_car_by_id(root, car_data, table_frame, input_frame, columns, tree):
         if not any(car[0] == car_id for car in car_data):  # Nếu ID không tồn tại trong dữ liệu
             # Tạo cửa sổ thông báo lỗi và định vị ở giữa root
             error_window = tk.Toplevel(update_window)
-            error_window.title("Lỗi")
+            error_window.title("Error")
             error_window.geometry("300x100")
             
             # Tính toán để cửa sổ error_window hiển thị ở giữa root
@@ -100,6 +100,10 @@ def save_updated_car(car_id, columns, car_data, tree, input_frame, table_frame):
         messagebox.showerror("Error", "Car ID already exists. Please enter another ID")
         entries["Car_id"].focus_set()  # Đặt con trỏ vào Car ID để nhập lại
         return
+
+     # Kiểm tra tính hợp lệ của dữ liệu nhập vào
+    if not validate_input(car_data, entries):
+        return  # Dừng lại nếu dữ liệu không hợp lệ
 
     for col in columns:
         value = entries[col].get()
