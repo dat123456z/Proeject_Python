@@ -1,7 +1,7 @@
 from tkinter import messagebox
 import tkinter as tk
 from tkinter import ttk
-from CRUD.create import save_data_to_csv
+from CRUD.create import save_data_to_csv, validate_input
 from CRUD.sort import view_data
 
 
@@ -100,6 +100,10 @@ def save_updated_car(car_id, columns, car_data, tree, input_frame, table_frame):
         messagebox.showerror("Error", "Car ID already exists. Please enter another ID")
         entries["Car_id"].focus_set()  # Đặt con trỏ vào Car ID để nhập lại
         return
+
+     # Kiểm tra tính hợp lệ của dữ liệu nhập vào
+    if not validate_input(car_data, entries):
+        return  # Dừng lại nếu dữ liệu không hợp lệ
 
     for col in columns:
         value = entries[col].get()
